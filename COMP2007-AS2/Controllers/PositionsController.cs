@@ -36,6 +36,7 @@ namespace COMP2007_AS1.Controllers
         }
 
         // GET: Positions/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -44,6 +45,7 @@ namespace COMP2007_AS1.Controllers
         // POST: Positions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "positionId,positionName,hourlyPay,duties")] Position position)
@@ -59,6 +61,7 @@ namespace COMP2007_AS1.Controllers
         }
 
         // GET: Positions/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -76,6 +79,7 @@ namespace COMP2007_AS1.Controllers
         // POST: Positions/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "positionId,positionName,hourlyPay,duties")] Position position)
@@ -90,6 +94,7 @@ namespace COMP2007_AS1.Controllers
         }
 
         // GET: Positions/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,6 +110,7 @@ namespace COMP2007_AS1.Controllers
         }
 
         // POST: Positions/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

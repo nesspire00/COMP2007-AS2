@@ -37,6 +37,7 @@ namespace COMP2007_AS1.Controllers
         }
 
         // GET: Staff/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.positionId = new SelectList(db.Positions, "positionId", "positionName");
@@ -46,6 +47,7 @@ namespace COMP2007_AS1.Controllers
         // POST: Staff/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "staffId,positionId,firstName,lastName,shiftHours")] Staff staff)
@@ -62,6 +64,7 @@ namespace COMP2007_AS1.Controllers
         }
 
         // GET: Staff/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -80,6 +83,7 @@ namespace COMP2007_AS1.Controllers
         // POST: Staff/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "staffId,positionId,firstName,lastName,shiftHours")] Staff staff)
@@ -95,6 +99,7 @@ namespace COMP2007_AS1.Controllers
         }
 
         // GET: Staff/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -110,6 +115,7 @@ namespace COMP2007_AS1.Controllers
         }
 
         // POST: Staff/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
