@@ -1,0 +1,43 @@
+﻿@model COMP2007_AS1.Models.Position
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Position</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.positionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.positionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hourlyPay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hourlyPay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.duties)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.duties)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.positionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

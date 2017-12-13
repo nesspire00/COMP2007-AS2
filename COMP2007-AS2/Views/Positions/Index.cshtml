@@ -1,0 +1,46 @@
+﻿@model IEnumerable<COMP2007_AS1.Models.Position>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.positionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hourlyPay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.duties)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.positionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hourlyPay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.duties)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.positionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.positionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.positionId })
+        </td>
+    </tr>
+}
+
+</table>

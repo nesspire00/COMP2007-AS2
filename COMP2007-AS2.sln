@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COMP2007-AS2", "COMP2007-AS2\COMP2007-AS2.csproj", "{92E5124C-8126-4D63-BB40-D7109E76F8BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COMP2007-AS2.Tests", "COMP2007-AS2.Tests\COMP2007-AS2.Tests.csproj", "{F30ECF6C-B02C-4309-80A4-B57D5EDD57CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92E5124C-8126-4D63-BB40-D7109E76F8BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92E5124C-8126-4D63-BB40-D7109E76F8BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92E5124C-8126-4D63-BB40-D7109E76F8BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92E5124C-8126-4D63-BB40-D7109E76F8BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F30ECF6C-B02C-4309-80A4-B57D5EDD57CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F30ECF6C-B02C-4309-80A4-B57D5EDD57CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F30ECF6C-B02C-4309-80A4-B57D5EDD57CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F30ECF6C-B02C-4309-80A4-B57D5EDD57CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC0F91C4-F0E0-46C5-A68E-4BE0BA80A12F}
+	EndGlobalSection
+EndGlobal
