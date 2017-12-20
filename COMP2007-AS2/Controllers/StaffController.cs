@@ -6,13 +6,23 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using COMP2007_AS1.Models;
+using COMP2007_AS2.Models;
 
-namespace COMP2007_AS1.Controllers
+namespace COMP2007_AS2.Controllers
 {
     public class StaffController : Controller
     {
-        private EventStaffModel db = new EventStaffModel();
+        private IStaffRepository db;
+
+        public StaffController()
+        {
+            this.db = new EFStaffRepository();
+        }
+
+        public StaffController(IStaffRepository repo)
+        {
+            this.db = repo;
+        }
 
         // GET: Staff
         public ActionResult Index()
@@ -26,12 +36,12 @@ namespace COMP2007_AS1.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Error");
             }
-            Staff staff = db.Staffs.Find(id);
+            Staff staff = db.Staffs.SingleOrDefault(a => a.staffId == id);
             if (staff == null)
             {
-                return HttpNotFound();
+                return View("Error");
             }
             return View(staff);
         }
@@ -41,7 +51,7 @@ namespace COMP2007_AS1.Controllers
         public ActionResult Create()
         {
             ViewBag.positionId = new SelectList(db.Positions, "positionId", "positionName");
-            return View();
+            return View("Create");
         }
 
         // POST: Staff/Create
@@ -54,8 +64,7 @@ namespace COMP2007_AS1.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Staffs.Add(staff);
-                db.SaveChanges();
+                db.Save(staff);
                 return RedirectToAction("Index");
             }
 
@@ -69,12 +78,12 @@ namespace COMP2007_AS1.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Error");
             }
-            Staff staff = db.Staffs.Find(id);
+            Staff staff = db.Staffs.SingleOrDefault(a => a.staffId == id);
             if (staff == null)
             {
-                return HttpNotFound();
+                return View("Error");
             }
             ViewBag.positionId = new SelectList(db.Positions, "positionId", "positionName", staff.positionId);
             return View(staff);
@@ -90,12 +99,11 @@ namespace COMP2007_AS1.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(staff).State = EntityState.Modified;
-                db.SaveChanges();
+                db.Save(staff);
                 return RedirectToAction("Index");
             }
             ViewBag.positionId = new SelectList(db.Positions, "positionId", "positionName", staff.positionId);
-            return View(staff);
+            return View("Edit", staff);
         }
 
         // GET: Staff/Delete/5
@@ -104,12 +112,12 @@ namespace COMP2007_AS1.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Error");
             }
-            Staff staff = db.Staffs.Find(id);
+            Staff staff = db.Staffs.SingleOrDefault(a => a.staffId == id);
             if (staff == null)
             {
-                return HttpNotFound();
+                return View("Error");
             }
             return View(staff);
         }
@@ -120,19 +128,18 @@ namespace COMP2007_AS1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Staff staff = db.Staffs.Find(id);
-            db.Staffs.Remove(staff);
-            db.SaveChanges();
+            Staff staff = db.Staffs.SingleOrDefault(a => a.staffId == id);
+            db.Delete(staff);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

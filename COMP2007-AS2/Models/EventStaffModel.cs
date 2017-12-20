@@ -1,4 +1,4 @@
-namespace COMP2007_AS1.Models
+namespace COMP2007_AS2.Models
 {
     using System;
     using System.Data.Entity;

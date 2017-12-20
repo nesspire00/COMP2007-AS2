@@ -64,6 +64,7 @@ namespace COMP2007_AS2
                 ClientId = ConfigurationManager.AppSettings["GoogleClientId"],
                 ClientSecret = ConfigurationManager.AppSettings["GoogleClientSecret"]
             });
+
         }
     }
 }

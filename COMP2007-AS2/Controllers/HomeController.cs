@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace COMP2007_AS1.Controllers
+namespace COMP2007_AS2.Controllers
 {
     public class HomeController : Controller
     {
